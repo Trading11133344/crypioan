@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/api/binance/:path*","destination":"https://data-api.binance.vision/:path*"},{"source":"/super-secret-admin-700","destination":"/super-secret-admin-700.html"},{"source":"/(.*)","destination":"/index.html"}]}
