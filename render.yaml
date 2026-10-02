@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: tradingworld
+    name: cryptonion          # must match the existing Render service so the URL stays cryptonion.onrender.com
     runtime: node
     region: singapore
     plan: starter            # a persistent disk requires a paid plan; Free has no disk
@@ -12,7 +12,7 @@ services:
     # Without this disk the ledger lives on the ephemeral filesystem and every
     # deploy or restart wipes all users, balances and deposits.
     disk:
-      name: tradingworld-data
+      name: cryptonion-data
       mountPath: /var/data
       sizeGB: 1
 

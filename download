@@ -1,0 +1,10 @@
+node_modules/
+dist/
+data/
+tw-ledger.json
+.env
+.env.*
+.DS_Store
+*.bak
+*.bak2
+.vite/

@@ -13,8 +13,8 @@ export default defineConfig({
     {name:'ledger',configureServer(s){attachLedger(s.middlewares)}},
     {name:'admin-route',configureServer(s){
       s.middlewares.use((req,res,next)=>{
-        if(req.url&&req.url.split('?')[0]==='/super-secret-admin-700'){
-          req.url='/super-secret-admin-700.html'+(req.url.split('?')[1]?'?'+req.url.split('?')[1]:'');
+        if(req.url&&req.url.split('?')[0]==='/super-secret-CryptOrion-System'){
+          req.url='/super-secret-CryptOrion-System.html'+(req.url.split('?')[1]?'?'+req.url.split('?')[1]:'');
         }
         next();
       });
@@ -24,5 +24,5 @@ export default defineConfig({
     watch:{ignored:['**/data/**','**/tw-ledger.json','**/node_modules/**','**/dist/**','**/backups/**']},
     proxy:{'/api/binance':{target:'https://data-api.binance.vision',changeOrigin:true,rewrite:p=>p.replace(/^\/api\/binance/,'')}}
   },
-  build:{rollupOptions:{input:{main:'index.html',admin:'super-secret-admin-700.html'}}}
+  build:{rollupOptions:{input:{main:'index.html',admin:'super-secret-CryptOrion-System.html'}}}
 });

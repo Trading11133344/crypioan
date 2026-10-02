@@ -1,4 +1,4 @@
-# TradingWorld — စနစ်တစ်ခုလုံး စစ်ဆေးမှု အစီရင်ခံစာ
+# CryptOrion — စနစ်တစ်ခုလုံး စစ်ဆေးမှု အစီရင်ခံစာ
 
 **ရက်စွဲ:** 2026-09-30 · **နည်းလမ်း:** Postgres အစစ် (ခင်ဗျား Neon schema အတိုင်း) + server အစစ် run ပြီး API ပေါင်း ၄၀ ကျော် စမ်းသပ်
 
@@ -94,7 +94,7 @@ Login session တွေကို ledger ထဲ (Postgres) **sha256 hash** အဖ
 - Password မှန်ပေမယ့် ဖုန်းမရှိရင် ဘယ်သူမှ admin မဝင်နိုင်တော့ပါ
 
 ### ၃.၃ အလိုအလျောက် Backup ✅
-- **နေ့စဉ် (၂၄ နာရီခြား) + server တက်တိုင်း** ledger ကို `tw_backups` table ထဲ သိမ်း၊ နောက်ဆုံး **၁၄ ခု** ထိန်း
+- **နေ့စဉ် (၂၄ နာရီခြား) + server တက်တိုင်း** ledger ကို `cryptorion_backups` table ထဲ သိမ်း၊ နောက်ဆုံး **၁၄ ခု** ထိန်း
 - Admin console မှာ **`Download backup`** ခလုတ် ➜ JSON ဖိုင် ချက်ချင်း ဒေါင်း
 - Backup/export ထဲ **session token မပါ**၊ password တွေက scrypt hash သာ ✅
 

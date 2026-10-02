@@ -1,10 +1,10 @@
-# TradingWorld Upgraded
+# CryptOrion Upgraded
 
-This package upgrades the existing TradingWorld project with the complete TradingWorld feature set and 3D presentation while preserving TradingWorld's original gold/black palette and brand.
+This package upgrades the existing CryptOrion project with the complete CryptOrion feature set and 3D presentation while preserving CryptOrion's original gold/black palette and brand.
 
 ## Included
 
-- TradingWorld gold/black palette preserved
+- CryptOrion gold/black palette preserved
 - Premium animated 3D logo, blockchain scene, coins, and logged-in backdrops
 - Registration/login and persistent UID ledger
 - User activation and account status
@@ -16,7 +16,7 @@ This package upgrades the existing TradingWorld project with the complete Tradin
 - Support chat, operator replies, callback requests
 - Mobile navigation and responsive layouts
 - Admin registration, ledger, deposit-address, KYC/TxID, support, callback, and settlement views
-- Existing TradingWorld user records are schema-migrated by the new ledger loader
+- Existing CryptOrion user records are schema-migrated by the new ledger loader
 - Transparent Market Dynamic settlement only; manual Force Win/Force Loss controls were intentionally removed
 
 ## Render deployment
@@ -35,7 +35,7 @@ The upgraded project includes:
 - User → 2FA & Account Recovery → Connect Telegram Bot
 - Secure one-time `/start` link (expires after 15 minutes)
 - Telegram account connection status visible in the admin Registration and Account recovery tabs
-- Six-digit TradingWorld password-recovery OTP sent only through the linked bot
+- Six-digit CryptOrion password-recovery OTP sent only through the linked bot
 - OTP expiry after 10 minutes, five-attempt lockout, one-time use, and hashed OTP storage
 - Admin recovery event/status audit without revealing the OTP
 - Admin can proactively select any UID in Support and send a direct message; linked users also receive the message through Telegram
@@ -52,7 +52,7 @@ OTP_SECRET=<different long random secret>
 
 When a user starts a connection, the server automatically asks Telegram to set the webhook to `PUBLIC_URL/api/telegram/webhook`.
 
-Never request or store a user's Telegram login code. The six-digit code generated here is a TradingWorld recovery OTP only.
+Never request or store a user's Telegram login code. The six-digit code generated here is a CryptOrion recovery OTP only.
 
 ## Important production requirements
 
@@ -60,7 +60,7 @@ This package uses JSON files for its ledger. Render instances can have an epheme
 
 Before accepting real funds, add server-side admin authentication/authorization, hashed user passwords, rate limiting, CSRF protection, secure secret environment variables, encrypted KYC storage, proper custody controls, monitoring, backups, and an independent security/legal review. Do not publish a repository containing real user records, passwords, wallet data, or KYC files.
 
-The current admin route is preserved as `/super-secret-admin-700`, but a hidden URL alone is not security. Replace the prototype admin login with server-side authentication before production.
+The current admin route is preserved as `/super-secret-CryptOrion-System`, but a hidden URL alone is not security. Replace the prototype admin login with server-side authentication before production.
 
 ---
 
@@ -371,7 +371,7 @@ quiet period can take roughly 50 seconds.
 
 ## Web3 wallet linking
 
-A member can attach their own wallet to their TradingWorld account from
+A member can attach their own wallet to their CryptOrion account from
 **Settings → Web3 wallet**. The link is permanent until they press *Disconnect*:
 it is stored on the user record, so signing out, switching device or a redeploy
 does not break it.

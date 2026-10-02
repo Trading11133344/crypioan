@@ -1,4 +1,4 @@
-# TradingWorld — တင်မယ့်အခါ စစ်ရမယ့် စာရင်း (URL မပြောင်းဘဲ)
+# CryptOrion — တင်မယ့်အခါ စစ်ရမယ့် စာရင်း (URL မပြောင်းဘဲ)
 
 ## ၀။ ဒေတာ အခြေအနေ — **စစ်ဆေးပြီး၊ ပျောက်စရာ မရှိပါ** ✅
 
@@ -6,12 +6,12 @@ Neon Console ကနေ အတည်ပြုပြီး —
 
 | အချက် | တွေ့ရှိချက် |
 |---|---|
-| Neon project | သင့် Neon project / branch `production` / `neondb` |
-| Table | **`tw_store`** (`id integer`, `data jsonb`, `updated_at timestamptz`) |
+| Neon project | `CRYPTONION` / branch `production` / `neondb` |
+| Table | **`cryptorion_store`** (`id integer`, `data jsonb`, `updated_at timestamptz`) |
 | ဒေတာ ရှိရာနေရာ | Render ဖိုင်စနစ် **မဟုတ်** — Postgres ထဲ |
 
 ဒါကြောင့် ကုဒ်အသစ်ကို —
-- Table/column အမည် **`tw_store` · `data`** အတိုင်း ကိုက်အောင် ပြင်ပြီးပြီ
+- Table/column အမည် **`cryptorion_store` · `data`** အတိုင်း ကိုက်အောင် ပြင်ပြီးပြီ
 - Neon URL ရဲ့ `sslmode=require` / `channel_binding=require` ကြောင့် ချိတ်မရတတ်တာကိုလည်း ပြင်ပြီးပြီ
 - ဆိုလိုတာက **deploy တင်တာနဲ့ ရှိပြီးသား user/balance အားလုံးကို တိုက်ရိုက် ဆက်သုံးမယ်** — import / migration **မလိုပါ**
 
@@ -27,7 +27,7 @@ Neon Console ကနေ အတည်ပြုပြီး —
 
 > **Backup** ယူထားချင်ရင် (မလိုအပ်ပေမယ့် စိတ်ချရအောင်) — Neon Console ➜ SQL Editor:
 > ```sql
-> select data from tw_store where id=1;
+> select data from cryptorion_store where id=1;
 > ```
 > ရလာတဲ့ JSON ကို ဖိုင်အဖြစ် သိမ်းထားပါ။ Neon မှာ **branch/restore** လုပ်စရာလည်း ရှိပါတယ်။
 
@@ -51,9 +51,9 @@ Live နဲ့ ကိုက်အောင် ထပ်ပြင်ထားတ�
 |---|---|---|
 | User token key | `co_token` | ✅ `co_token` |
 | Admin token key | `co_admin_token` | ✅ `co_admin_token` |
-| User cache key | `tradingworld_user` | ✅ `tradingworld_user` |
+| User cache key | `cryptorion_user` | ✅ `cryptorion_user` |
 | HTTP header | `x-tw-token` / `x-tw-admin` | ✅ အတူတူ |
-| Postgres | `tw_store(data)` | ✅ အတူတူ |
+| Postgres | `cryptorion_store(data)` | ✅ အတူတူ |
 
 ➜ ဒါကြောင့် **လက်ရှိ login ဝင်ထားသူတွေ session မပြုတ်ပါ**။
 
@@ -64,8 +64,8 @@ Live နဲ့ ကိုက်အောင် ထပ်ပြင်ထားတ�
 | အချက် | အခြေအနေ |
 |---|---|
 | Render **service အသစ် မဖွင့်ရ** — ရှိပြီးသား service ကိုပဲ redeploy လုပ်ပါ | ✅ URL မပြောင်း |
-| `render.yaml` ထဲက service name ကို **`tradingworld`** လို့ ပြင်ပြီးပြီ (အရင် `tradingworld` — Blueprint သုံးရင် service အသစ်ဖြစ်ပြီး URL ပြောင်းသွားနိုင်) | ✅ ပြင်ပြီး |
-| Admin route `/super-secret-admin-700` ကို မထိပါ (`vite.config.js`, `server-prod.mjs`, `netlify.toml`, `vercel.json` အားလုံး တူညီ) | ✅ တူညီ |
+| `render.yaml` ထဲက service name ကို **`cryptonion`** လို့ ပြင်ပြီးပြီ (အရင် `cryptorion` — Blueprint သုံးရင် service အသစ်ဖြစ်ပြီး URL ပြောင်းသွားနိုင်) | ✅ ပြင်ပြီး |
+| Admin route `/super-secret-CryptOrion-System` ကို မထိပါ (`vite.config.js`, `server-prod.mjs`, `netlify.toml`, `vercel.json` အားလုံး တူညီ) | ✅ တူညီ |
 
 > Render service ကို dashboard ကနေ လက်နဲ့ဖွင့်ထားတာဆိုရင် `render.yaml` ကို လုံးဝ အသုံးမပြုပါဘူး —
 > အဲဒီအခါ ဖျက်ပစ်လည်း ရပါတယ်။ Blueprint သုံးထားရင်တော့ အထက်က နာမည်က အရေးကြီးပါတယ်။
@@ -74,12 +74,12 @@ Live နဲ့ ကိုက်အောင် ထပ်ပြင်ထားတ�
 
 ## ၂။ တင်နည်း (GitHub ➜ Render auto-deploy)
 
-1. **`TradingWorld-deploy-ROOT.zip`** ကို သုံးပါ — ဖိုင်တွေက zip ရဲ့ **အပြင်ဆုံးအလွှာ**မှာ ရှိပါတယ်
+1. **`CryptOrion-deploy-ROOT.zip`** ကို သုံးပါ — ဖိုင်တွေက zip ရဲ့ **အပြင်ဆုံးအလွှာ**မှာ ရှိပါတယ်
    (folder တစ်ထပ် ပိုမပါလို့ repo root ထဲ တိုက်ရိုက် ထည့်လို့ရ)။
 2. ရှိပြီးသား repo ထဲက **အောက်ပါဖိုင်များကို အသစ်နဲ့ အစားထိုး** ပါ —
    `src/App.jsx` · `src/index.css` · `src/main.jsx` · `src/admin-main.jsx` ·
    `server/ledger.mjs` · `server-prod.mjs` · `vite.config.js` · `index.html` ·
-   `super-secret-admin-700.html` · `package.json` · `package-lock.json` ·
+   `super-secret-CryptOrion-System.html` · `package.json` · `package-lock.json` ·
    `Dockerfile` · `render.yaml` · `netlify.toml` · `vercel.json` · `scripts/admin-2fa.mjs` (အသစ်)
 3. `git add -A && git commit -m "admin panel + web3 wallet login" && git push`
 4. Render က အလိုအလျောက် build လုပ်ပါလိမ့်မယ် (`npm ci && npm run build` ➜ `npm start`)။
@@ -91,7 +91,7 @@ Live နဲ့ ကိုက်အောင် ထပ်ပြင်ထားတ�
 ## ၃။ Render Dashboard မှာ ထည့်ရမယ့် Environment Variables
 
 ```
-ADMIN_EMAIL     = mglwanwai19900@gmail.com
+ADMIN_EMAIL     = CryptOrionSystem700@gmail.com
 ADMIN_PASSWORD  = (အသစ်တစ်ခု ★ ကုဒ်ထဲက default ကို မသုံးပါနှင့်)
 DATABASE_URL    = postgresql://…neon.tech/…   ← Neon သုံးရင် ဒါတစ်ခုတည်းနဲ့ ရပြီ
 #DATA_DIR       = /var/data        ← Neon မသုံးဘဲ disk သုံးမှသာ
@@ -115,7 +115,7 @@ TELEGRAM_BOT_TOKEN / TELEGRAM_BOT_USERNAME / PUBLIC_URL
 ## ၃.၅။ Neon Postgres (ခင်ဗျား လက်ရှိ အခြေအနေ — အတည်ပြုပြီး)
 
 - `DATABASE_URL` က Render မှာ **ထည့်ပြီးသား** (live site က Neon ကို တကယ်သုံးနေတယ်)
-- ကုဒ်အသစ်က **တူညီတဲ့ table `tw_store`** ကိုပဲ ဖတ်/ရေးမယ် ➜ ဒေတာ ဆက်တိုက် သွားမယ်
+- ကုဒ်အသစ်က **တူညီတဲ့ table `cryptorion_store`** ကိုပဲ ဖတ်/ရေးမယ် ➜ ဒေတာ ဆက်တိုက် သွားမယ်
 - Neon ချို့ယွင်းရင် site မကျဘဲ ဖိုင်ပေါ်မှာ ဆက်ပြေး၊ ၃၀ စက္ကန့်ခြား retry
 - Deploy ပြီးရင် Render **Logs** မှာ ဒါကို ရှာပါ:
   ```
@@ -140,10 +140,10 @@ TELEGRAM_BOT_TOKEN / TELEGRAM_BOT_USERNAME / PUBLIC_URL
 
 ## ၅။ တင်ပြီးရင် စစ်ရမယ့် ၆ ချက်
 
-1. `https://tradingworld.onrender.com` ➜ ပွင့်ရမယ် (emerald ဒီဇိုင်း အတိုင်း)
-2. `…/super-secret-admin-700` ➜ **Operator console** login ပေါ်ရမယ်
+1. `https://cryptonion.onrender.com` ➜ ပွင့်ရမယ် (emerald ဒီဇိုင်း အတိုင်း)
+2. `…/super-secret-CryptOrion-System` ➜ **Operator console** login ပေါ်ရမယ်
 3. Admin login ➜ tab ၈ ခု (Registration … Account recovery, Audit log)
-4. `https://tradingworld.onrender.com/api/store` ကို browser မှာ ဖွင့်ကြည့် ➜
+4. `https://cryptonion.onrender.com/api/store` ကို browser မှာ ဖွင့်ကြည့် ➜
    **users စာရင်း မပေါ်ရ** (`"users":[]` သာ) = လုံခြုံရေး အလုပ်လုပ်နေပြီ
 5. အကောင့်အသစ် register ➜ admin panel မှာ UID ချက်ချင်း မြင်ရမယ်
 6. Wallet page ➜ **Web3 wallet** ကတ် · Login page ➜ **or continue with your wallet** ပေါ်ရမယ်

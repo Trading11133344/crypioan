@@ -5,8 +5,8 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/super-secret-admin-700"
-to = "/super-secret-admin-700.html"
+from = "/super-secret-CryptOrion-System"
+to = "/super-secret-CryptOrion-System.html"
 status = 200
 
 [[redirects]]
